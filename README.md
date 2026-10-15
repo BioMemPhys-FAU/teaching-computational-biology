@@ -15,7 +15,7 @@ Link-Schema (OWNER, REPO und REF ersetzen):
 https://mybinder.org/v2/gh/OWNER/REPO/REF?labpath=md_engine%2FMD_2D_Berendsen.ipynb
 ```
 
-`environment.yml` legt Python 3.14 sowie die lokal getesteten direkten Python-Abhängigkeiten fest. Binder stellt die Jupyter-Infrastruktur bereit. Das ist kein vollständiger Lock aller transitiven Abhängigkeiten. Ein Build und Browser-Test auf mybinder.org ist noch nicht erfolgt; es ist noch kein öffentliches Repository verknüpft.
+`environment.yml` legt Python 3.14 sowie die lokal getesteten direkten Python-Abhängigkeiten fest. Binder stellt die Jupyter-Infrastruktur bereit. Damit sind nicht alle indirekten Abhängigkeiten auf feste Versionen festgelegt. Der erfolgreiche Start auf Binder wurde am 15.10.2026 vom Kursverantwortlichen bestätigt.
 
 **Studierende:** Binder speichert Änderungen nicht dauerhaft. Das bearbeitete Notebook und gegebenenfalls exportierte `.npz`-Daten vor dem Beenden herunterladen. Für längere Läufe lokal oder auf einem Hochschul-JupyterHub arbeiten. Die Standardeinstellungen sind für kurze interaktive Übungen gedacht; viele Teilchen erhöhen die Rechenkosten quadratisch.
 
@@ -36,11 +36,11 @@ jupyter lab md_engine/MD_2D_Berendsen.ipynb
 python md_engine/validate_md.py
 ```
 
-Die Tests prüfen Kraft gegen Potentialgradient, Impulserhaltung, periodische Invarianz, Virial, kinetischen Druck, Energieerhaltung ohne Regler, die 2D-Reglerschritte und konsistente Speicherung.
+Die Tests vergleichen die Kraft mit dem negativen Potenzialgradienten und prüfen die Impulserhaltung, die periodische Invarianz, das Virial, den kinetischen Druck, die Energieerhaltung ohne Regler, die 2D-Reglerschritte sowie die konsistente Speicherung.
 
-Vollständiger lokaler Notebook-Durchlauf am 15.10.2026 mit Python 3.14, NumPy 2.5.4 und Matplotlib 3.11.2: 12 000 Simulationsschritte mit 64 Teilchen in 9,61 s (ohne Animationserzeugung); 1 201 Messpunkte und 301 Trajektorienbilder. Player auf 160 Bilder begrenzt. Notebook mit Ausgaben ca. 3,4 MB. Die Laufzeit auf Binder kann abweichen. Relative Energiespanne im kurzen NVE-Test: 5,57 × 10⁻⁵. Alle Codezellen wurden erfolgreich in einem frischen Jupyter-Kernel ausgeführt; die HTML-Ausgabe wurde erzeugt.
+Vollständiger lokaler Notebook-Durchlauf am 15.10.2026 mit Python 3.14, NumPy 2.5.4 und Matplotlib 3.11.2: 12 000 Simulationsschritte mit 64 Teilchen in 9,61 s (ohne Animationserzeugung); 1 201 Messpunkte und 301 Trajektorienbilder. Der Player ist auf 160 Bilder begrenzt. Das Notebook umfasst einschließlich der Ausgaben ca. 3,4 MB. Die Laufzeit auf Binder kann abweichen. Relative Energiespanne im kurzen NVE-Test: 5,57 × 10⁻⁵. Alle Codezellen wurden erfolgreich in einem frischen Jupyter-Kernel ausgeführt; die HTML-Ausgabe wurde erzeugt.
 
-Berendsen erzeugt keine korrekten kanonischen/isobar-isothermen Fluktuationen. Das Notebook erläutert diese Einschränkung und die 2D-Formeln; es ist ein Lehrmodell.
+Die Berendsen-Verfahren erzeugen weder die korrekten Fluktuationen des kanonischen Ensembles noch die des isotherm-isobaren Ensembles. Das Notebook erläutert diese Einschränkung und die 2D-Formeln; es ist ein Lehrmodell.
 
 ## Quellen für die Binder-Vorbereitung
 
