@@ -1,0 +1,10 @@
+name: teaching-computational-biology
+channels:
+  - conda-forge
+dependencies:
+  - python=3.14
+  - pip
+  - pip:
+      - numpy==2.5.4
+      - matplotlib==3.11.2
+      - ipython==9.17.0
